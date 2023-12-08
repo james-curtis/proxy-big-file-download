@@ -1,0 +1,11 @@
+services:
+  nginx:
+    image: bitnami/openresty:1.21
+    ports:
+      - 880:80
+      - 8443:443
+    volumes:
+      - ./nginx/site.conf:/opt/bitnami/openresty/nginx/conf/server_blocks/site.conf:ro
+      - ./nginx/certs:/opt/bitnami/certs
+      - ./nginx/app:/app
+      - ./nginx/logs:/logs
